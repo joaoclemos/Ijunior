@@ -468,25 +468,30 @@ function executarParaCadaNumero(
   numeros: number[],
   callback: (numero: number) => void
 ): void {
+
   // ... complete aqui ...
   // Dica: Use um loop for para percorrer o array
   // Para cada número, chame: callback(numeros[i])
+  for (let i = 0; i < numeros.length; i++) {
+    callback(numeros[i]);
+  }
 }
 
 // Exercício 6.2: Complete a função dobrarNumeros
 // A função deve usar um callback para transformar cada número
 // O callback recebe um número e retorna um número transformado
 function dobrarNumeros(numeros: number[]): number[] {
+
   // ... complete aqui ...
   // Dica: Crie um array vazio 'resultado'
   // Para cada número, chame o callback que dobra (numero * 2)
   // Adicione o resultado ao array
   // Ou simplesmente implemente sem callback:
-  // let resultado: number[] = [];
-  // for (let i = 0; i < numeros.length; i++) {
-  //   resultado.push(numeros[i] * 2);
-  // }
-  // return resultado;
+   let resultado: number[] = [];
+   for (let i = 0; i < numeros.length; i++) {
+     resultado.push(numeros[i] * 2);
+   }
+   return resultado;
 }
 
 // Exercício 6.3: Complete a função filtrarComCallback
@@ -496,10 +501,15 @@ function filtrarComCallback(
   numeros: number[],
   callback: (numero: number) => boolean
 ): number[] {
-  // ... complete aqui ...
-  // Dica: Crie um array vazio 'resultado'
-  // Para cada número, se callback(numero) for true, adicione ao resultado
-  // Exemplo de uso: filtrarComCallback([1,2,3,4], (n) => n > 2) retorna [3,4]
+  let resultado: number[] = [];
+  
+  for (let i = 0; i < numeros.length; i++) {
+    if (callback(numeros[i])) {
+      resultado.push(numeros[i]);
+    }
+  }
+  
+  return resultado;
 }
 
 // Exercício 6.4: Complete a função processarUsuarios
@@ -509,8 +519,12 @@ function processarUsuarios(
   usuarios: Usuario[],
   callback: (usuario: Usuario) => void
 ): void {
+
   // ... complete aqui ...
   // Dica: Percorra o array de usuários e execute callback(usuarios[i]) para cada um
+  for (let i = 0; i < usuarios.length; i++) {
+    callback(usuarios[i]);
+  }
 }
 
 // Exercício 6.5: Complete a função transformarNomes
@@ -520,10 +534,13 @@ function transformarNomes(
   usuarios: Usuario[],
   callback: (nome: string) => string
 ): string[] {
-  // ... complete aqui ...
-  // Dica: Crie um array de strings
-  // Para cada usuário, aplique o callback no nome e adicione ao array
-  // Exemplo de uso: transformarNomes(usuarios, (nome) => nome.toUpperCase())
+  let resultado: string[] = [];
+  
+  for (let i = 0; i < usuarios.length; i++) {
+    resultado.push(callback(usuarios[i].nome));
+  }
+  
+  return resultado;
 }
 
 // Exercício 6.6: Complete a função calcularComOperacao
@@ -534,12 +551,14 @@ function calcularComOperacao(
   b: number,
   operacao: (x: number, y: number) => number
 ): number {
+  return operacao(a, b);
+}
+
   // ... complete aqui ...
   // Dica: Simplesmente retorne operacao(a, b)
   // Isso permite que quem chama a função decida a operação:
   // calcularComOperacao(5, 3, (x, y) => x + y) // soma
   // calcularComOperacao(5, 3, (x, y) => x * y) // multiplicação
-}
 
 // ============================================================================
 // SEÇÃO 7: DESAFIOS EXTRAS (OPCIONAL)
@@ -647,35 +666,35 @@ console.log("\n=== TESTES - SEÇÃO 5: FUNÇÕES ===");
  console.log("5.9 - Preços com 10% desconto:", aplicarDescontoEmProdutos(produtosTeste, 10)); // esperado: [90, 180]
 
 console.log("\n=== TESTES - SEÇÃO 6: CALLBACKS ===");
-// console.log("6.1 - Executar para cada:");
-// executarParaCadaNumero([1, 2, 3], (n) => console.log(`  Número: ${n}`));
-//
-// console.log("6.2 - Dobrar números [1,2,3]:", dobrarNumeros([1, 2, 3])); // esperado: [2, 4, 6]
-//
-// console.log("6.3 - Filtrar maiores que 5:", filtrarComCallback([3, 7, 2, 9, 1], (n) => n > 5)); // esperado: [7, 9]
-//
-// console.log("6.4 - Processar usuários:");
-// const usuarios6: Usuario[] = [
-//   { nome: "Ana", idade: 20, email: "ana@email.com", ativo: true },
-//   { nome: "Bruno", idade: 25, email: "bruno@email.com", ativo: false }
-// ];
-// processarUsuarios(usuarios6, (u) => console.log(`  ${u.nome} - ${u.email}`));
-//
-// console.log("6.5 - Nomes em maiúsculo:", transformarNomes(usuarios6, (nome) => nome.toUpperCase())); // esperado: ["ANA", "BRUNO"]
-//
-// console.log("6.6 - Calcular 10 + 5:", calcularComOperacao(10, 5, (a, b) => a + b)); // esperado: 15
-// console.log("6.6 - Calcular 10 * 5:", calcularComOperacao(10, 5, (a, b) => a * b)); // esperado: 50
+ console.log("6.1 - Executar para cada:");
+ executarParaCadaNumero([1, 2, 3], (n) => console.log(`  Número: ${n}`));
+
+ console.log("6.2 - Dobrar números [1,2,3]:", dobrarNumeros([1, 2, 3])); // esperado: [2, 4, 6]
+
+ console.log("6.3 - Filtrar maiores que 5:", filtrarComCallback([3, 7, 2, 9, 1], (n) => n > 5)); // esperado: [7, 9]
+
+ console.log("6.4 - Processar usuários:");
+ const usuarios6: Usuario[] = [
+   { nome: "Ana", idade: 20, email: "ana@email.com", ativo: true },
+   { nome: "Bruno", idade: 25, email: "bruno@email.com", ativo: false }
+ ];
+ processarUsuarios(usuarios6, (u) => console.log(`  ${u.nome} - ${u.email}`));
+
+ console.log("6.5 - Nomes em maiúsculo:", transformarNomes(usuarios6, (nome) => nome.toUpperCase())); // esperado: ["ANA", "BRUNO"]
+
+ console.log("6.6 - Calcular 10 + 5:", calcularComOperacao(10, 5, (a, b) => a + b)); // esperado: 15
+ console.log("6.6 - Calcular 10 * 5:", calcularComOperacao(10, 5, (a, b) => a * b)); // esperado: 50
 
 console.log("\n=== TESTES - SEÇÃO 7: DESAFIOS ===");
-// const usuariosTeste: Usuario[] = [
-//   { nome: "João", idade: 25, email: "joao@email.com", ativo: true },
-//   { nome: "Maria", idade: 30, email: "maria@email.com", ativo: false },
-//   { nome: "Pedro", idade: 22, email: "pedro@email.com", ativo: true }
-// ];
-// console.log("7.1 - Buscar por email 'maria@email.com':", buscarUsuarioPorEmail(usuariosTeste, "maria@email.com"));
-// console.log("7.2 - Usuários ativos:", contarUsuariosAtivos(usuariosTeste)); // esperado: 2
-// console.log("7.3 - Total em estoque:", calcularTotalEmEstoque(produtosTeste)); // esperado: 300
-// console.log("7.4 - Relatório:", criarRelatorioDeUsuarios(usuariosTeste)); // esperado: "Total: 3 usuários (2 ativos, 1 inativo)"
+ const usuariosTeste: Usuario[] = [
+   { nome: "João", idade: 25, email: "joao@email.com", ativo: true },
+   { nome: "Maria", idade: 30, email: "maria@email.com", ativo: false },
+   { nome: "Pedro", idade: 22, email: "pedro@email.com", ativo: true }
+ ];
+ console.log("7.1 - Buscar por email 'maria@email.com':", buscarUsuarioPorEmail(usuariosTeste, "maria@email.com"));
+ console.log("7.2 - Usuários ativos:", contarUsuariosAtivos(usuariosTeste)); // esperado: 2
+ console.log("7.3 - Total em estoque:", calcularTotalEmEstoque(produtosTeste)); // esperado: 300
+ console.log("7.4 - Relatório:", criarRelatorioDeUsuarios(usuariosTeste)); // esperado: "Total: 3 usuários (2 ativos, 1 inativo)"
 
 console.log("\n=== FIM DOS TESTES ===");
 console.log(
