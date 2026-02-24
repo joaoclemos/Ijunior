@@ -77,8 +77,11 @@ let tenhoExperiencia: boolean = false;
 // Exercício 2.1: Complete a função isMaiorDeIdade
 // A função deve retornar true se a idade for >= 18, e false caso contrário
 function isMaiorDeIdade(idade: number): boolean {
-  // ... complete aqui ...
-  // Dica: Use if (idade >= 18) { return true } else { return false }
+  if (idade >= 18) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Exercício 2.2: Complete a função verificarTemperatura
@@ -87,8 +90,13 @@ function isMaiorDeIdade(idade: number): boolean {
 // - "Agradável" se temperatura >= 15 e < 25
 // - "Frio" se temperatura < 15
 function verificarTemperatura(temperatura: number): string {
-  // ... complete aqui ...
-  // Dica: Use if, else if, e else para cobrir os três casos
+  if(temperatura >= 25) {
+    return "Calor";
+  } else if(temperatura >= 15) {
+    return "Agradável";
+  } else {
+    return "Frio";
+  }
 }
 
 // Exercício 2.3: Complete a função podeDirigir
@@ -97,7 +105,11 @@ function verificarTemperatura(temperatura: number): string {
 // - temCarteira === true
 // Dica: Use o operador && (E lógico) para combinar condições
 function podeDirigir(idade: number, temCarteira: boolean): boolean {
-  // ... complete aqui ...
+  if (idade >= 18 && temCarteira === true) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Exercício 2.4: Complete a função avaliarNota
@@ -107,7 +119,15 @@ function podeDirigir(idade: number, temCarteira: boolean): boolean {
 // - "Recuperação" se nota >= 5 e < 7
 // - "Reprovado" se nota < 5
 function avaliarNota(nota: number): string {
-  // ... complete aqui ...
+  if (nota >= 9) {
+    return "Aprovado com distinção";
+  } else if (nota >= 7) {
+    return "Aprovado";
+  } else if (nota >= 5) {
+    return "Recuperação";
+  } else {
+    return "Reprovado";
+  }
 }
 
 // Exercício 2.5: Complete a função ehParOuImpar
@@ -115,9 +135,12 @@ function avaliarNota(nota: number): string {
 // Dica: Um número é par se o resto da divisão por 2 é zero
 // Para calcular o resto, use o operador % (exemplo: 10 % 2 resulta em 0)
 function ehParOuImpar(numero: number): string {
-  // ... complete aqui ...
+  if (numero % 2 === 0) {
+    return "Par";
+  } else {
+    return "Ímpar";
+  }
 }
-
 // ============================================================================
 // SEÇÃO 3: ARRAYS E LOOPS (for)
 // ============================================================================
@@ -546,19 +569,19 @@ console.log("1.5 - Mensagem:", mensagemMotivacional); // esperado: "Você conseg
 console.log("1.6 - Tenho experiência:", tenhoExperiencia); // esperado: false
 
 console.log("\n=== TESTES - SEÇÃO 2: CONDICIONAIS ===");
-// console.log("2.1 - É maior de idade (18)?", isMaiorDeIdade(18)); // esperado: true
-// console.log("2.1 - É maior de idade (15)?", isMaiorDeIdade(15)); // esperado: false
-// console.log("2.2 - Temperatura 30°C:", verificarTemperatura(30)); // esperado: "Calor"
-// console.log("2.2 - Temperatura 20°C:", verificarTemperatura(20)); // esperado: "Agradável"
-// console.log("2.2 - Temperatura 10°C:", verificarTemperatura(10)); // esperado: "Frio"
-// console.log("2.3 - Pode dirigir (20 anos, tem carteira)?", podeDirigir(20, true)); // esperado: true
-// console.log("2.3 - Pode dirigir (20 anos, sem carteira)?", podeDirigir(20, false)); // esperado: false
-// console.log("2.4 - Nota 9.5:", avaliarNota(9.5)); // esperado: "Aprovado com distinção"
-// console.log("2.4 - Nota 7.5:", avaliarNota(7.5)); // esperado: "Aprovado"
-// console.log("2.4 - Nota 6:", avaliarNota(6)); // esperado: "Recuperação"
-// console.log("2.4 - Nota 4:", avaliarNota(4)); // esperado: "Reprovado"
-// console.log("2.5 - 10 é par ou ímpar?", ehParOuImpar(10)); // esperado: "Par"
-// console.log("2.5 - 7 é par ou ímpar?", ehParOuImpar(7)); // esperado: "Ímpar"
+ console.log("2.1 - É maior de idade (18)?", isMaiorDeIdade(18)); // esperado: true
+ console.log("2.1 - É maior de idade (15)?", isMaiorDeIdade(15)); // esperado: false
+ console.log("2.2 - Temperatura 30°C:", verificarTemperatura(30)); // esperado: "Calor"
+ console.log("2.2 - Temperatura 20°C:", verificarTemperatura(20)); // esperado: "Agradável"
+ console.log("2.2 - Temperatura 10°C:", verificarTemperatura(10)); // esperado: "Frio"
+ console.log("2.3 - Pode dirigir (20 anos, tem carteira)?", podeDirigir(20, true)); // esperado: true
+ console.log("2.3 - Pode dirigir (20 anos, sem carteira)?", podeDirigir(20, false)); // esperado: false
+ console.log("2.4 - Nota 9.5:", avaliarNota(9.5)); // esperado: "Aprovado com distinção"
+ console.log("2.4 - Nota 7.5:", avaliarNota(7.5)); // esperado: "Aprovado"
+ console.log("2.4 - Nota 6:", avaliarNota(6)); // esperado: "Recuperação"
+ console.log("2.4 - Nota 4:", avaliarNota(4)); // esperado: "Reprovado"
+ console.log("2.5 - 10 é par ou ímpar?", ehParOuImpar(10)); // esperado: "Par"
+ console.log("2.5 - 7 é par ou ímpar?", ehParOuImpar(7)); // esperado: "Ímpar"
 
 console.log("\n=== TESTES - SEÇÃO 3: ARRAYS E LOOPS ===");
 // console.log("3.1 - Soma [1,2,3,4,5]:", somarArray([1, 2, 3, 4, 5])); // esperado: 15
