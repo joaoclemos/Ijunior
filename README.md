@@ -1,1 +1,1 @@
-# Ijunior
+Meus projetos produzidos na jornada pela Ijunior.
