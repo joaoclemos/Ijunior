@@ -345,8 +345,7 @@ const pessoa1: Pessoa = {
 // A função deve retornar uma saudação personalizada
 // Exemplo: se o nome for "João", retornar "Olá, João! Bem-vindo(a)!"
 function formatarSaudacao(nome: string): string {
-  // ... complete aqui ...
-  // Dica: Use template strings com crase: `Olá, ${nome}! Bem-vindo(a)!`
+  return `Olá, ${nome}! Bem-vindo(a)!`;
 }
 
 // Exercício 5.2: Complete a função apresentarUsuario
@@ -355,6 +354,7 @@ function formatarSaudacao(nome: string): string {
 function apresentarUsuario(usuario: Usuario): string {
   // ... complete aqui ...
   // Dica: Acesse as propriedades do objeto com usuario.nome, usuario.idade, etc.
+  return `${usuario.nome} tem ${usuario.idade} anos e seu email é ${usuario.email}`;
 }
 
 // Exercício 5.3: Complete a função calcularDesconto
@@ -364,60 +364,63 @@ function calcularDesconto(
   precoOriginal: number,
   percentualDesconto: number
 ): number {
-  // ... complete aqui ...
-  // Dica: desconto = precoOriginal * (percentualDesconto / 100)
-  //       precoFinal = precoOriginal - desconto
+  const desconto = precoOriginal * (percentualDesconto / 100);
+  return precoOriginal - desconto;
 }
 
 // Exercício 5.4: Complete a função ehUsuarioAtivo
 // A função deve retornar true se o usuário estiver ativo E for maior de idade
 function ehUsuarioAtivo(usuario: Usuario): boolean {
-  // ... complete aqui ...
-  // Dica: Use o operador && para combinar duas condições
-  // usuario.ativo === true E usuario.idade >= 18
+  return usuario.ativo === true && usuario.idade >= 18;
 }
 
 // Exercício 5.5: Complete a função obterIniciais
 // A função deve retornar as iniciais de um nome completo
 // Exemplo: "João Silva Santos" → "JSS"
 function obterIniciais(nomeCompleto: string): string {
+
   // ... complete aqui ...
   // Dica Avançada: Use split(" ") para separar o nome em palavras
   // Depois, pegue a primeira letra de cada palavra
-  // let palavras = nomeCompleto.split(" ");
-  // let iniciais = "";
-  // for (let i = 0; i < palavras.length; i++) {
-  //   iniciais += palavras[i][0];
-  // }
-  // return iniciais.toUpperCase();
+   let palavras = nomeCompleto.split(" ");
+   let iniciais = "";
+   for (let i = 0; i < palavras.length; i++) {
+     iniciais += palavras[i][0];
+   }
+   return iniciais.toUpperCase();
 }
 
 // Exercício 5.6: Complete a função criarUsuario
 // A função deve criar e retornar um objeto Usuario com os dados fornecidos
 function criarUsuario(nome: string, idade: number, email: string): Usuario {
+  
   // ... complete aqui ...
   // Dica: Retorne um objeto com as propriedades preenchidas
-  // return {
-  //   nome: nome,
-  //   idade: idade,
-  //   email: email,
-  //   ativo: true  // por padrão, novos usuários são ativos
-  // };
+   return {
+     nome: nome,
+     idade: idade,
+     email: email,
+     ativo: true  // por padrão, novos usuários são ativos
+  };
 }
 
 // Exercício 5.7: Complete a função formatarEndereco
 // A função deve retornar o endereço formatado como uma string
 // Exemplo: "Rua das Flores, 123 - São Paulo/SP - CEP: 01234-567"
 function formatarEndereco(endereco: Endereco): string {
+
   // ... complete aqui ...
   // Dica: Use template strings para concatenar as propriedades
+  return `${endereco.rua}, ${endereco.numero} - ${endereco.cidade}/${endereco.estado} - CEP: ${endereco.cep}`;
 }
 
 // Exercício 5.8: Complete a função calcularIdadeEmMeses
 // A função deve calcular quantos meses a pessoa tem de vida
 function calcularIdadeEmMeses(idade: number): number {
+
   // ... complete aqui ...
   // Dica: 1 ano = 12 meses
+  return idade * 12;
 }
 
 // Exercício 5.9: Complete a função aplicarDescontoEmProdutos
@@ -426,11 +429,15 @@ function aplicarDescontoEmProdutos(
   produtos: Produto[],
   percentualDesconto: number
 ): number[] {
-  // ... complete aqui ...
-  // Dica: Crie um array vazio para os novos preços
-  // Use um loop for para percorrer todos os produtos
-  // Para cada produto, calcule o novo preço e adicione ao array
-  // Retorne o array de novos preços
+  let novosPrecos: number[] = [];
+  
+  for (let i = 0; i < produtos.length; i++) {
+    let desconto = produtos[i].preco * (percentualDesconto / 100);
+    let precoFinal = produtos[i].preco - desconto;
+    novosPrecos.push(precoFinal);
+  }
+  
+  return novosPrecos;
 }
 
 // ============================================================================
