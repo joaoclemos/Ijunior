@@ -163,57 +163,67 @@ function ehParOuImpar(numero: number): string {
 // Exercício 3.1: Complete a função somarArray
 // A função deve somar todos os números de um array e retornar o total
 function somarArray(numeros: number[]): number {
-  // ... complete aqui ...
-  // Dica: Crie uma variável 'soma' começando em 0
-  // Use um loop for para percorrer o array
-  // Em cada iteração, adicione o número atual à soma
-  // No final, retorne a soma
+  let soma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    soma += numeros[i];
+  }
+  return soma;
 }
 
 // Exercício 3.2: Complete a função encontrarMaiorNumero
 // A função deve retornar o maior número de um array
 function encontrarMaiorNumero(numeros: number[]): number {
-  // ... complete aqui ...
-  // Dica: Crie uma variável 'maior' começando com o primeiro número (numeros[0])
-  // Use um loop for começando em i = 1
-  // Se numeros[i] for maior que 'maior', atualize 'maior'
-  // Retorne 'maior' no final
+  let maior = numeros[0];
+  for (let i = 1; i < numeros.length; i++) {
+    if (numeros[i] > maior) {
+      maior = numeros[i];
+    }
+  }
+  return maior;
 }
 
 // Exercício 3.3: Complete a função contarPares
 // A função deve contar quantos números pares existem no array
 function contarPares(numeros: number[]): number {
-  // ... complete aqui ...
-  // Dica: Crie uma variável 'contador' começando em 0
-  // Use um loop for e, para cada número, verifique se é par (numero % 2 === 0)
-  // Se for par, incremente o contador
-  // Retorne o contador no final
+  let contador = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] % 2 === 0) {
+      contador++;
+    }
+  }
+  return contador;
 }
 
 // Exercício 3.4: Complete a função encontrarMenorNumero
 // A função deve retornar o menor número de um array
 function encontrarMenorNumero(numeros: number[]): number {
-  // ... complete aqui ...
-  // Dica: Similar ao exercício 3.2, mas procurando o MENOR
+  let menor = numeros[0];
+  for (let i = 1; i < numeros.length; i++) {
+    if (numeros[i] < menor) {
+      menor = numeros[i];
+    }
+  }
+  return menor;
 }
 
 // Exercício 3.5: Complete a função calcularMedia
 // A função deve calcular a média dos números de um array
 // Média = soma de todos os números / quantidade de números
 function calcularMedia(numeros: number[]): number {
-  // ... complete aqui ...
-  // Dica: Você pode reutilizar a lógica da função somarArray!
-  // Depois, divida a soma por numeros.length
+  let soma = somarArray(numeros);
+  return soma / numeros.length;
 }
 
 // Exercício 3.6: Complete a função filtrarPositivos
 // A função deve retornar um novo array contendo apenas os números positivos
 function filtrarPositivos(numeros: number[]): number[] {
-  // ... complete aqui ...
-  // Dica: Crie um array vazio: let positivos: number[] = []
-  // Use um loop for e, para cada número, verifique se é > 0
-  // Se for positivo, adicione ao array usando: positivos.push(numero)
-  // Retorne o array de positivos no final
+  let positivos: number[] = [];
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] > 0) {
+      positivos.push(numeros[i]);
+    }
+  }
+  return positivos;
 }
 
 // ============================================================================
@@ -242,13 +252,19 @@ function filtrarPositivos(numeros: number[]): number[] {
 // - email (string)
 // - ativo (boolean) - indica se o usuário está ativo no sistema
 interface Usuario {
-  // ... complete aqui ...
+  nome: string;
+  idade: number;
+  email: string;
+  ativo: boolean;
 }
 
 // Exercício 4.2: Crie um objeto do tipo Usuario
 // Preencha com seus próprios dados ou dados fictícios
 const usuario1: Usuario = {
-  // ... complete aqui ...
+  nome: "João Lemos",
+  idade: 18,
+  email: "joaoclemoss@gmail.com",
+  ativo: true
 };
 
 // Exercício 4.3: Complete a interface Produto
@@ -584,12 +600,12 @@ console.log("\n=== TESTES - SEÇÃO 2: CONDICIONAIS ===");
  console.log("2.5 - 7 é par ou ímpar?", ehParOuImpar(7)); // esperado: "Ímpar"
 
 console.log("\n=== TESTES - SEÇÃO 3: ARRAYS E LOOPS ===");
-// console.log("3.1 - Soma [1,2,3,4,5]:", somarArray([1, 2, 3, 4, 5])); // esperado: 15
-// console.log("3.2 - Maior número [3,7,2,9,1]:", encontrarMaiorNumero([3, 7, 2, 9, 1])); // esperado: 9
-// console.log("3.3 - Contar pares [1,2,3,4,5,6]:", contarPares([1, 2, 3, 4, 5, 6])); // esperado: 3
-// console.log("3.4 - Menor número [3,7,2,9,1]:", encontrarMenorNumero([3, 7, 2, 9, 1])); // esperado: 1
-// console.log("3.5 - Média [10,20,30]:", calcularMedia([10, 20, 30])); // esperado: 20
-// console.log("3.6 - Filtrar positivos [-2,-1,0,1,2]:", filtrarPositivos([-2, -1, 0, 1, 2])); // esperado: [1, 2]
+ console.log("3.1 - Soma [1,2,3,4,5]:", somarArray([1, 2, 3, 4, 5])); // esperado: 15
+ console.log("3.2 - Maior número [3,7,2,9,1]:", encontrarMaiorNumero([3, 7, 2, 9, 1])); // esperado: 9
+ console.log("3.3 - Contar pares [1,2,3,4,5,6]:", contarPares([1, 2, 3, 4, 5, 6])); // esperado: 3
+ console.log("3.4 - Menor número [3,7,2,9,1]:", encontrarMenorNumero([3, 7, 2, 9, 1])); // esperado: 1
+ console.log("3.5 - Média [10,20,30]:", calcularMedia([10, 20, 30])); // esperado: 20
+ console.log("3.6 - Filtrar positivos [-2,-1,0,1,2]:", filtrarPositivos([-2, -1, 0, 1, 2])); // esperado: [1, 2]
 
 console.log("\n=== TESTES - SEÇÃO 4: INTERFACES E OBJETOS ===");
 // console.log("4.2 - Usuário criado:", usuario1);
