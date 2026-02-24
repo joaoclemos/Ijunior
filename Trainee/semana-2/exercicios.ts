@@ -32,26 +32,26 @@
 
 // Exercício 1.1: Corrija o tipo de 'meuNome'
 // Dica: Nomes são textos, então use o tipo que representa texto
-let meuNome: any = "João Silva";
+let meuNome: string = "João Silva";
 
 // Exercício 1.2: Corrija o tipo de 'minhaIdade'
 // Dica: Idade é um número
-let minhaIdade: any = 25;
+let minhaIdade: number = 25;
 
 // Exercício 1.3: Corrija o tipo de 'estouAprendendo'
 // Dica: Perguntas que têm resposta sim/não usam um tipo específico
-let estouAprendendo: any = true;
+let estouAprendendo: boolean = true;
 
 // Exercício 1.4: Corrija o tipo de 'temperaturaHoje'
 // Dica: Temperatura pode ter casas decimais (como 23.5°C)
-let temperaturaHoje: any = 23.5;
+let temperaturaHoje: number = 23.5;
 
 // Exercício 1.5: Corrija o tipo de 'mensagemMotivacional'
-let mensagemMotivacional: any = "Você consegue! Continue praticando.";
+let mensagemMotivacional: string = "Você consegue! Continue praticando.";
 
 // Exercício 1.6: Corrija o tipo de 'tenhoExperiencia'
 // Dica: Esta variável responde à pergunta "Tenho experiência?" - sim ou não
-let tenhoExperiencia: any = false;
+let tenhoExperiencia: boolean = false;
 
 // ============================================================================
 // SEÇÃO 2: OPERADORES E CONDICIONAIS (if/else)
