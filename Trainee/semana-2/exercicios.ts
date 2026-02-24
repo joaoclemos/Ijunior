@@ -274,13 +274,18 @@ const usuario1: Usuario = {
 // - emEstoque (boolean)
 // - categoria (string)
 interface Produto {
-  // ... complete aqui ...
+  nome: string;
+  preco: number;
+  emEstoque: boolean;
+  categoria: string;
 }
 
 // Exercício 4.4: Crie um objeto do tipo Produto
 const produto1: Produto = {
-  // ... complete aqui ...
-  // Dica: Crie um produto como "Notebook", preço 3000, em estoque, categoria "Eletrônicos"
+  nome: "Notebook",
+  preco: 3000,
+  emEstoque: true,
+  categoria: "Eletrônicos"
 };
 
 // Exercício 4.5: Complete a interface Endereco
@@ -291,7 +296,11 @@ const produto1: Produto = {
 // - estado (string)
 // - cep (string)
 interface Endereco {
-  // ... complete aqui ...
+  rua: string;
+  numero: number;
+  cidade: string;
+  estado: string;
+  cep: string;
 }
 
 // Exercício 4.6: Complete a interface Pessoa
@@ -300,21 +309,22 @@ interface Endereco {
 // - idade (number)
 // - endereco (Endereco) - note que usamos a interface que você criou acima!
 interface Pessoa {
-  // ... complete aqui ...
+  nome: string;
+  idade: number;
+  endereco: Endereco;
 }
 
 // Exercício 4.7: Crie um objeto do tipo Pessoa com um endereço completo
 const pessoa1: Pessoa = {
-  // ... complete aqui ...
-  // Dica: O endereço é um objeto dentro do objeto pessoa!
-  // Exemplo:
-  // nome: "Maria",
-  // idade: 30,
-  // endereco: {
-  //   rua: "Rua das Flores",
-  //   numero: 123,
-  //   ...
-  // }
+  nome: "Maria Silva",
+  idade: 30,
+  endereco: {
+    rua: "Rua das Flores",
+    numero: 123,
+    cidade: "São Paulo",
+    estado: "SP",
+    cep: "12345-678"
+  }
 };
 
 // ============================================================================
@@ -608,26 +618,26 @@ console.log("\n=== TESTES - SEÇÃO 3: ARRAYS E LOOPS ===");
  console.log("3.6 - Filtrar positivos [-2,-1,0,1,2]:", filtrarPositivos([-2, -1, 0, 1, 2])); // esperado: [1, 2]
 
 console.log("\n=== TESTES - SEÇÃO 4: INTERFACES E OBJETOS ===");
-// console.log("4.2 - Usuário criado:", usuario1);
-// console.log("4.4 - Produto criado:", produto1);
-// console.log("4.7 - Pessoa criada:", pessoa1);
+ console.log("4.2 - Usuário criado:", usuario1);
+ console.log("4.4 - Produto criado:", produto1);
+ console.log("4.7 - Pessoa criada:", pessoa1);
 
 console.log("\n=== TESTES - SEÇÃO 5: FUNÇÕES ===");
-// console.log("5.1 - Saudação:", formatarSaudacao("Maria")); // esperado: "Olá, Maria! Bem-vindo(a)!"
-// console.log("5.2 - Apresentar usuário:", apresentarUsuario(usuario1));
-// console.log("5.3 - Desconto (100, 10%):", calcularDesconto(100, 10)); // esperado: 90
-// console.log("5.4 - Usuário ativo?", ehUsuarioAtivo(usuario1));
-// console.log("5.5 - Iniciais de 'João Silva Santos':", obterIniciais("João Silva Santos")); // esperado: "JSS"
-// const novoUsuario = criarUsuario("Pedro", 30, "pedro@email.com");
-// console.log("5.6 - Novo usuário criado:", novoUsuario);
-// const enderecoTeste: Endereco = { rua: "Rua A", numero: 100, cidade: "BH", estado: "MG", cep: "30000-000" };
-// console.log("5.7 - Endereço formatado:", formatarEndereco(enderecoTeste));
-// console.log("5.8 - 25 anos em meses:", calcularIdadeEmMeses(25)); // esperado: 300
-// const produtosTeste: Produto[] = [
-//   { nome: "Produto A", preco: 100, emEstoque: true, categoria: "X" },
-//   { nome: "Produto B", preco: 200, emEstoque: true, categoria: "Y" }
-// ];
-// console.log("5.9 - Preços com 10% desconto:", aplicarDescontoEmProdutos(produtosTeste, 10)); // esperado: [90, 180]
+ console.log("5.1 - Saudação:", formatarSaudacao("Maria")); // esperado: "Olá, Maria! Bem-vindo(a)!"
+ console.log("5.2 - Apresentar usuário:", apresentarUsuario(usuario1));
+ console.log("5.3 - Desconto (100, 10%):", calcularDesconto(100, 10)); // esperado: 90
+ console.log("5.4 - Usuário ativo?", ehUsuarioAtivo(usuario1));
+ console.log("5.5 - Iniciais de 'João Silva Santos':", obterIniciais("João Silva Santos")); // esperado: "JSS"
+ const novoUsuario = criarUsuario("Pedro", 30, "pedro@email.com");
+ console.log("5.6 - Novo usuário criado:", novoUsuario);
+ const enderecoTeste: Endereco = { rua: "Rua A", numero: 100, cidade: "BH", estado: "MG", cep: "30000-000" };
+ console.log("5.7 - Endereço formatado:", formatarEndereco(enderecoTeste));
+ console.log("5.8 - 25 anos em meses:", calcularIdadeEmMeses(25)); // esperado: 300
+ const produtosTeste: Produto[] = [
+   { nome: "Produto A", preco: 100, emEstoque: true, categoria: "X" },
+   { nome: "Produto B", preco: 200, emEstoque: true, categoria: "Y" }
+ ];
+ console.log("5.9 - Preços com 10% desconto:", aplicarDescontoEmProdutos(produtosTeste, 10)); // esperado: [90, 180]
 
 console.log("\n=== TESTES - SEÇÃO 6: CALLBACKS ===");
 // console.log("6.1 - Executar para cada:");
