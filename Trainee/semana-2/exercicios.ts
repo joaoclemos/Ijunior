@@ -574,34 +574,46 @@ function buscarUsuarioPorEmail(
   usuarios: Usuario[],
   email: string
 ): Usuario | null {
-  // ... complete aqui ...
-  // Dica: Use um loop for para percorrer o array de usuários
-  // Para cada usuário, verifique se usuario.email === email
-  // Se encontrar, retorne o usuário imediatamente
-  // Se o loop terminar sem encontrar, retorne null
+  for (let i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].email === email) {
+      return usuarios[i];
+    }
+  }
+  
+  return null;
 }
 
 // Desafio 7.2: Complete a função contarUsuariosAtivos
 // A função deve contar quantos usuários estão ativos no array
 function contarUsuariosAtivos(usuarios: Usuario[]): number {
-  // ... complete aqui ...
+  let count = 0;
+  for (let i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].ativo) {
+      count++;
+    }
+  }
+  return count;
 }
 
 // Desafio 7.3: Complete a função calcularTotalEmEstoque
 // A função deve somar o preço de todos os produtos que estão em estoque
 function calcularTotalEmEstoque(produtos: Produto[]): number {
-  // ... complete aqui ...
-  // Dica: Use um loop e uma condicional
-  // Apenas some o preço se produto.emEstoque === true
+  let total = 0;
+  for (let i = 0; i < produtos.length; i++) {
+    if (produtos[i].emEstoque) {
+      total += produtos[i].preco;
+    }
+  }
+  return total;
 }
-
 // Desafio 7.4: Complete a função criarRelatorioDeUsuarios
 // A função deve retornar uma string com um resumo dos usuários
 // Exemplo: "Total: 3 usuários (2 ativos, 1 inativo)"
 function criarRelatorioDeUsuarios(usuarios: Usuario[]): string {
-  // ... complete aqui ...
-  // Dica: Conte o total, os ativos e calcule os inativos
-  // Use template strings para formatar a resposta
+  let total = usuarios.length;
+  let ativos = contarUsuariosAtivos(usuarios);
+  let inativos = total - ativos;
+  return `Total: ${total} usuários (${ativos} ativos, ${inativos} inativos)`;
 }
 
 // ============================================================================
