@@ -43,4 +43,3 @@ btnAdd.addEventListener('click', () => {
     inputTitulo.value = "";
     inputDesc.value = "";
 });
-//comentário pro pull request
