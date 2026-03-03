@@ -18,3 +18,5 @@ Para que sua entrega seja aprovada, ela deve:
 - **[Git]** O desenvolvimento deve ser feito em uma `feature` branch (ex: `feature/pagina-perfil`) criada a partir da `desenvolvimento`.
 - **[Git]** Os commits devem seguir o padrão **Conventional Commits**.
 - **[Git]** Um **Pull Request (PR)** deve ser aberto da sua branch `feature` para a branch `desenvolvimento`.
+
+  Ferramentas utilizadas: HTML, CSS, JS, TS, JSON, NODE.JS.
