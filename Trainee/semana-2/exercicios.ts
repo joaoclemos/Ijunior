@@ -57,7 +57,7 @@ let tenhoExperiencia: boolean = false;
 // SEÇÃO 2: OPERADORES E CONDICIONAIS (if/else)
 // ============================================================================
 // Condicionais permitem que seu programa tome decisões!
-// A estrutura básica é:
+// A estrutura básica e:
 //
 //   if (condição) {
 //     // código executado se a condição for verdadeira
